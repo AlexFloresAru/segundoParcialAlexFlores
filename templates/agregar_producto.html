@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <h1>Agregar Producto</h1>
+    <form method="POST">
+        ID: <input type="text" name="id" required><br>
+        Nombre: <input type="text" name="nombre" required><br>
+        Cantidad: <input type="number" name="cantidad" required><br>
+        Precio: <input type="text" name="precio" required><br>
+        Fecha de Vencimiento: <input type="date" name="fecha_vencimiento" required><br>
+        Categoría: <select name="categoria" id="">
+            <option value="Refresco">Refresco</option>
+            <option value="Galleta">Galleta</option>
+            <option value="Dulce">Dulce</option>
+            <option value="Panes">Panes</option>
+            <option value="Verduras">Verduras</option>
+            <option value="Frutas">Frutas</option>
+        </select><br>
+        <input type="submit" value="Agregar Producto">
+    </form>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

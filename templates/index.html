@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda</title>
+</head>
+<body>
+    <div>
+        <fieldset>
+            SEGUNDO PARCIAL TEM-732<br>
+            NOMBRE: ALEX FLORES ARUQUIPA<br>
+            CARNET: 9865263
+        </fieldset>
+    </div>
+    <h1>Gestion de productos</h1>
+    <a href="{{ url_for('agregar_producto') }}">Nuevo Producto</a><br><br>
+    
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Fecha de Vencimiento</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.cantidad }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.fecha_vencimiento }}</td>
+            <td>{{ producto.categoria }}</td>
+            <td>
+                <a href="{{ url_for('editar_producto', id=producto.id) }}">Editar</a>
+                <form action="{{ url_for('eliminar_producto', id=producto.id) }}" method="POST" style="display:inline;">
+                    <input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
